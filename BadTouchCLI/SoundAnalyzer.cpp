@@ -7,7 +7,7 @@
 //
 #include "SoundAnalyzer.h"
 
-void SoundAnalyzer::ProcessPacket(<#AudioQueueBufferRef buf#>) {
+void SoundAnalyzer::ProcessPacket(AudioQueueBufferRef buf) {
   //TODO something
 }
 
