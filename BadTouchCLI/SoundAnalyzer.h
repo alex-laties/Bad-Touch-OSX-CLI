@@ -17,13 +17,14 @@ private:
   int position;
   int last_peak;
   int num_peaks;
+  float threshold;
   float max_amplitude;
   float time_since_last;
   float clip_length;
 public:
   void ProcessPacket(AudioQueueBufferRef buf);
   
-  SoundAnalyzer();
+  SoundAnalyzer(UInt32 threshold);
   
 };
 
