@@ -14,23 +14,21 @@
 #include <vector>
 
 #ifndef AUDIO_BLOCK
-#define AUDIO_BLOCK UInt32
+#define AUDIO_BLOCK SInt32
 #endif
 
 class SoundAnalyzer {
 private:
   unsigned long start_peak_time, last_peak_time;
-  float threshold;
-  float max_amplitude;
-  float clip_length;
+  SInt32 threshold;
   AudioStreamBasicDescription* format;
   std::vector<AUDIO_BLOCK>* peaks;
 public:
-  void ProcessPacket(AudioQueueBufferRef buf);
+  void ProcessBuffer(AudioQueueBufferRef buf);
   void ProcessPeaks();
   static unsigned long GetCurrentTime();
   
-  SoundAnalyzer(UInt32 threshold, AudioStreamBasicDescription* recordFormat);
+  SoundAnalyzer(SInt32 threshold, AudioStreamBasicDescription* recordFormat);
   ~SoundAnalyzer();
 };
 

@@ -8,6 +8,7 @@
 #include <AudioToolbox/AudioToolbox.h>
 #include "CAXException.h"
 #include <stdio.h>
+#include "SoundAnalyzer.h"
 
 #define kNumberRecordBuffers  3
 
@@ -53,6 +54,9 @@ static int ComputeRecordBufferSize(const AudioStreamBasicDescription *format, Au
 
 //____________________________________________
 //CALLBACK: IMPORTANT THINGS GO HERE
+
+SoundAnalyzer * analyzer; 
+
 static void PropertyListener(void *userData, AudioQueueRef queue, AudioQueuePropertyID propID){
   AudioRecorder *ar = (AudioRecorder *)userData;
   if(propID == kAudioQueueProperty_IsRunning)
@@ -75,8 +79,8 @@ static void InputBufferHandler( void * inUserData,
     }
     
     if (inNumPackets > 0) {
-      //TODO pass data to sound processing function
-      printf("Got %d packets of sound data!\n", inNumPackets);
+      //printf("Got %d packets of sound data!\n", inNumPackets);
+      analyzer->ProcessBuffer(inBuffer);
       ar->recordPacket += inNumPackets;
     }
     
@@ -139,6 +143,8 @@ int main (int argc, const char * argv[])
     (recordFormat.mBitsPerChannel / 8) * recordFormat.mChannelsPerFrame;
   recordFormat.mFramesPerPacket = 1;
   recordFormat.mReserved = 0;
+  
+  analyzer = new SoundAnalyzer(INT32_MAX / 2, &recordFormat);
   
   try {
     XThrowIfError(AudioQueueNewInput(

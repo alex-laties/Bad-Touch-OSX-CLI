@@ -11,29 +11,44 @@
 #include <sys/time.h>
 #endif
 
-void SoundAnalyzer::ProcessPacket(AudioQueueBufferRef buf) {
-  UInt32 val = 0;
-  UInt32 *position = (UInt32 *)buf->mAudioData;
-  UInt32 totalVals = buf->mAudioDataByteSize / 4;
-  for( UInt32 i = 0;  i < totalVals; ++i)
+void SoundAnalyzer::ProcessBuffer(AudioQueueBufferRef buf) {
+  unsigned long t = SoundAnalyzer::GetCurrentTime();
+  
+  if (t - last_peak_time > 800) {
+    ProcessPeaks();
+  }
+  
+  AUDIO_BLOCK val = 0, max = 0;
+  AUDIO_BLOCK *position = (AUDIO_BLOCK *)buf->mAudioData;
+  AUDIO_BLOCK totalVals = buf->mAudioDataByteSize / sizeof(AUDIO_BLOCK);
+  
+  for(AUDIO_BLOCK i = 0;  i < totalVals; ++i)
   {
     val = *position;
+    
     if (peaks->empty()) {
       start_peak_time = last_peak_time = 0;
     }
     
-    if (last_peak_time - start_peak_time > 500) {
-      ProcessPeaks();
+    if (max < val) {
+      max = val;
     }
     
     if (val > threshold)
     {
       unsigned long time = SoundAnalyzer::GetCurrentTime();
       unsigned long dif = time - last_peak_time;
+      
       if (start_peak_time == 0) {
         start_peak_time = time;
       }
-      if (dif >= 100) {
+      
+      if (last_peak_time - start_peak_time > 800) {
+        ProcessPeaks();
+      }
+      
+      if (dif >= 80) {
+        printf("tap at %lu\n", time);
         peaks->push_back(val);
         last_peak_time = time;
       }
@@ -43,14 +58,30 @@ void SoundAnalyzer::ProcessPacket(AudioQueueBufferRef buf) {
 }
 
 void SoundAnalyzer::ProcessPeaks() {
-  //TODO determining # of peaks/scratching
+  if (peaks->empty()) {
+    return;
+  }
+  
+  switch (peaks->size()) {
+    case 1:
+      printf("1 tap detected\n");
+      break;
+    case 2:
+      printf("2 taps detected\n");
+      break;
+    case 3:
+      printf("3 taps detected\n");
+      break;
+    default:
+      printf("swipe?\n");
+      break;
+  }
+  peaks->clear();
 }
 
 
-SoundAnalyzer::SoundAnalyzer(UInt32 _threshold, AudioStreamBasicDescription* _format){
+SoundAnalyzer::SoundAnalyzer(AUDIO_BLOCK _threshold, AudioStreamBasicDescription* _format){
   last_peak_time = 0;
-  max_amplitude = 0.;
-  clip_length = 0.;
   threshold = _threshold;
   format = _format;
   peaks = new std::vector<AUDIO_BLOCK>();
