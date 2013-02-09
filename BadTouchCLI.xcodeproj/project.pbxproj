@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C017CFCE14C900ED00542FC5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017CFCD14C900ED00542FC5 /* AudioToolbox.framework */; };
 		C017CFD714C9016200542FC5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017CFD614C9016200542FC5 /* CoreFoundation.framework */; };
-		C017CFEF14C9041C00542FC5 /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C017CFED14C9041C00542FC5 /* CAXException.cpp */; };
 		C03F2AB214C9004C00545198 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C03F2AB114C9004C00545198 /* main.cpp */; };
 		C03F2AB414C9004C00545198 /* BadTouchCLI.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C03F2AB314C9004C00545198 /* BadTouchCLI.1 */; };
 		C09B2EC614CA1CB300C9EE00 /* SoundAnalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C09B2EC514CA1CB300C9EE00 /* SoundAnalyzer.cpp */; };
@@ -31,13 +30,43 @@
 /* Begin PBXFileReference section */
 		C017CFCD14C900ED00542FC5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C017CFD614C9016200542FC5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		C017CFED14C9041C00542FC5 /* CAXException.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CAXException.cpp; path = Extras/CoreAudio/PublicUtility/CAXException.cpp; sourceTree = DEVELOPER_DIR; };
-		C017CFEE14C9041C00542FC5 /* CAXException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAXException.h; path = Extras/CoreAudio/PublicUtility/CAXException.h; sourceTree = DEVELOPER_DIR; };
 		C03F2AAD14C9004C00545198 /* BadTouchCLIDebug */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BadTouchCLIDebug; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03F2AB114C9004C00545198 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C03F2AB314C9004C00545198 /* BadTouchCLI.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = BadTouchCLI.1; sourceTree = "<group>"; };
 		C09B2EC414CA126500C9EE00 /* SoundAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundAnalyzer.h; sourceTree = "<group>"; };
 		C09B2EC514CA1CB300C9EE00 /* SoundAnalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundAnalyzer.cpp; sourceTree = "<group>"; };
+		FA77FAA016C6D77E00A53037 /* CAAtomic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAtomic.h; sourceTree = "<group>"; };
+		FA77FAA116C6D77E00A53037 /* CAAtomicStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAtomicStack.h; sourceTree = "<group>"; };
+		FA77FAA216C6D77E00A53037 /* CAAudioChannelLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAAudioChannelLayout.cpp; sourceTree = "<group>"; };
+		FA77FAA316C6D77E00A53037 /* CAAudioChannelLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAudioChannelLayout.h; sourceTree = "<group>"; };
+		FA77FAA416C6D77E00A53037 /* CAAutoDisposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAutoDisposer.h; sourceTree = "<group>"; };
+		FA77FAA516C6D77E00A53037 /* CABufferList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CABufferList.cpp; sourceTree = "<group>"; };
+		FA77FAA616C6D77E00A53037 /* CABufferList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CABufferList.h; sourceTree = "<group>"; };
+		FA77FAA716C6D77E00A53037 /* CAByteOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAByteOrder.h; sourceTree = "<group>"; };
+		FA77FAA816C6D77E00A53037 /* CADebugger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugger.cpp; sourceTree = "<group>"; };
+		FA77FAA916C6D77E00A53037 /* CADebugger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CADebugger.h; sourceTree = "<group>"; };
+		FA77FAAA16C6D77E00A53037 /* CADebugMacros.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
+		FA77FAAB16C6D77E00A53037 /* CADebugMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		FA77FAAC16C6D77E00A53037 /* CADebugPrintf.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugPrintf.cpp; sourceTree = "<group>"; };
+		FA77FAAD16C6D77E00A53037 /* CADebugPrintf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		FA77FAAE16C6D77E00A53037 /* CAException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAException.h; sourceTree = "<group>"; };
+		FA77FAAF16C6D77E00A53037 /* CAGuard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAGuard.cpp; sourceTree = "<group>"; };
+		FA77FAB016C6D77E00A53037 /* CAGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAGuard.h; sourceTree = "<group>"; };
+		FA77FAB116C6D77E00A53037 /* CAHostTimeBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAHostTimeBase.cpp; sourceTree = "<group>"; };
+		FA77FAB216C6D77E00A53037 /* CAHostTimeBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAHostTimeBase.h; sourceTree = "<group>"; };
+		FA77FAB316C6D77E00A53037 /* CALogMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CALogMacros.h; sourceTree = "<group>"; };
+		FA77FAB416C6D77E00A53037 /* CAMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		FA77FAB516C6D77E00A53037 /* CAMutex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAMutex.cpp; sourceTree = "<group>"; };
+		FA77FAB616C6D77E00A53037 /* CAMutex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAMutex.h; sourceTree = "<group>"; };
+		FA77FAB716C6D77E00A53037 /* CAReferenceCounted.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAReferenceCounted.h; sourceTree = "<group>"; };
+		FA77FAB816C6D77E00A53037 /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		FA77FAB916C6D77E00A53037 /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		FA77FABA16C6D77E00A53037 /* CAThreadSafeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAThreadSafeList.h; sourceTree = "<group>"; };
+		FA77FABB16C6D77E00A53037 /* CAVectorUnit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAVectorUnit.cpp; sourceTree = "<group>"; };
+		FA77FABC16C6D77E00A53037 /* CAVectorUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVectorUnit.h; sourceTree = "<group>"; };
+		FA77FABD16C6D77E00A53037 /* CAVectorUnitTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVectorUnitTypes.h; sourceTree = "<group>"; };
+		FA77FABE16C6D77E00A53037 /* CAXException.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		FA77FABF16C6D77E00A53037 /* CAXException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +85,11 @@
 		C03F2AA214C9004C00545198 = {
 			isa = PBXGroup;
 			children = (
-				C017CFED14C9041C00542FC5 /* CAXException.cpp */,
-				C017CFEE14C9041C00542FC5 /* CAXException.h */,
 				C017CFD614C9016200542FC5 /* CoreFoundation.framework */,
 				C017CFCD14C900ED00542FC5 /* AudioToolbox.framework */,
 				C03F2AB014C9004C00545198 /* BadTouchCLI */,
 				C03F2AAE14C9004C00545198 /* Products */,
+				FA77FA9F16C6D77E00A53037 /* PublicUtility */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -84,6 +112,45 @@
 				C09B2EC414CA126500C9EE00 /* SoundAnalyzer.h */,
 			);
 			path = BadTouchCLI;
+			sourceTree = "<group>";
+		};
+		FA77FA9F16C6D77E00A53037 /* PublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+				FA77FAA016C6D77E00A53037 /* CAAtomic.h */,
+				FA77FAA116C6D77E00A53037 /* CAAtomicStack.h */,
+				FA77FAA216C6D77E00A53037 /* CAAudioChannelLayout.cpp */,
+				FA77FAA316C6D77E00A53037 /* CAAudioChannelLayout.h */,
+				FA77FAA416C6D77E00A53037 /* CAAutoDisposer.h */,
+				FA77FAA516C6D77E00A53037 /* CABufferList.cpp */,
+				FA77FAA616C6D77E00A53037 /* CABufferList.h */,
+				FA77FAA716C6D77E00A53037 /* CAByteOrder.h */,
+				FA77FAA816C6D77E00A53037 /* CADebugger.cpp */,
+				FA77FAA916C6D77E00A53037 /* CADebugger.h */,
+				FA77FAAA16C6D77E00A53037 /* CADebugMacros.cpp */,
+				FA77FAAB16C6D77E00A53037 /* CADebugMacros.h */,
+				FA77FAAC16C6D77E00A53037 /* CADebugPrintf.cpp */,
+				FA77FAAD16C6D77E00A53037 /* CADebugPrintf.h */,
+				FA77FAAE16C6D77E00A53037 /* CAException.h */,
+				FA77FAAF16C6D77E00A53037 /* CAGuard.cpp */,
+				FA77FAB016C6D77E00A53037 /* CAGuard.h */,
+				FA77FAB116C6D77E00A53037 /* CAHostTimeBase.cpp */,
+				FA77FAB216C6D77E00A53037 /* CAHostTimeBase.h */,
+				FA77FAB316C6D77E00A53037 /* CALogMacros.h */,
+				FA77FAB416C6D77E00A53037 /* CAMath.h */,
+				FA77FAB516C6D77E00A53037 /* CAMutex.cpp */,
+				FA77FAB616C6D77E00A53037 /* CAMutex.h */,
+				FA77FAB716C6D77E00A53037 /* CAReferenceCounted.h */,
+				FA77FAB816C6D77E00A53037 /* CAStreamBasicDescription.cpp */,
+				FA77FAB916C6D77E00A53037 /* CAStreamBasicDescription.h */,
+				FA77FABA16C6D77E00A53037 /* CAThreadSafeList.h */,
+				FA77FABB16C6D77E00A53037 /* CAVectorUnit.cpp */,
+				FA77FABC16C6D77E00A53037 /* CAVectorUnit.h */,
+				FA77FABD16C6D77E00A53037 /* CAVectorUnitTypes.h */,
+				FA77FABE16C6D77E00A53037 /* CAXException.cpp */,
+				FA77FABF16C6D77E00A53037 /* CAXException.h */,
+			);
+			path = PublicUtility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,7 +179,7 @@
 		C03F2AA414C9004C00545198 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "University of Pennsylvania";
 			};
 			buildConfigurationList = C03F2AA714C9004C00545198 /* Build configuration list for PBXProject "BadTouchCLI" */;
@@ -137,7 +204,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C017CFEF14C9041C00542FC5 /* CAXException.cpp in Sources */,
 				C03F2AB214C9004C00545198 /* main.cpp in Sources */,
 				C09B2EC614CA1CB300C9EE00 /* SoundAnalyzer.cpp in Sources */,
 			);
@@ -152,6 +218,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -166,6 +236,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -179,6 +250,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -187,6 +262,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
